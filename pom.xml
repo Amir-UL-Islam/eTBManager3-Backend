@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.msh</groupId>
     <artifactId>etbmanager</artifactId>
-        <version>3.0.0</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <organization>
@@ -203,6 +203,13 @@
             <classifier>bin</classifier>
             <type>exe</type>
             <scope>provided</scope>
+        </dependency>
+
+        <!--        Swagger Configuration-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
         </dependency>
     </dependencies>
 
