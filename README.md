@@ -20,12 +20,12 @@ e-TB Manager is a web-based tool for managing all the information needed by nati
 
 In order to build e-TB Manager from the source code, you will need the following programs installed:
 
-* Java JDK 1.8+
+* Java JDK 11
 * Maven 3+
 
 In order to work with client side development, it is highly recommended that you also install the following programs:
 
-* Node 5.0+
+* Node 6.17.1
 * Gulp 3.8+
 
 Development tools
@@ -87,9 +87,9 @@ These are the main files in the root folder:
 You need the following tools in order to start development:
 
 * Git
-* Java 1.8
+* Java 11
 * Maven 3+
-* Node 5+
+* Node 6.17.1
 * Gulp 3.8+
 * A development environment of your choice (IntelliJ recommended)
 
@@ -125,11 +125,12 @@ When you finish your changes, perform the following git sequence (as described i
 
 
 
-### Building from the source code
+### Building from the source code[QUICK START]
 
 In order to generate a new version of e-TB Manager from the source code, you must issue the following Maven command:
 
     mvn clean package
+The Command above will also generate ```manifest.json``` file which will contain all the language and Clint side code in ```src/main/resouces/static/```
 
 This will install all necessary dependencies and generate a new version in `target/etbmanager-x.x.x.jar`, where x.x.x is the version number.
 
@@ -177,7 +178,9 @@ You must provide a configuration file etbmanager.properties, as described in the
 
 When initialization finishes, open the URL below:
 
-    http://localhost:8080/index.html
+    http://localhost:8080/index.html 
+or
+> http://localhost:8080
 
 ## Server side development
 

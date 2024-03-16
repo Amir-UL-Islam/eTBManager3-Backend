@@ -75,6 +75,7 @@ public class NewNotificationService extends CaseValidator {
 
         // validating and saving patient
         ModelDAOResult resPatient;
+        // Saving or Updating
         resPatient = data.getPatientId() == null ? patientDao.insert(patientData) : patientDao.update(data.getPatientId(), patientData);
 
         if (resPatient.getErrors() != null) {

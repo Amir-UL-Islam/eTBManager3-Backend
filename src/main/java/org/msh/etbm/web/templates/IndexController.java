@@ -39,10 +39,15 @@ public class IndexController {
     @Value("${development:false}")
     private boolean development;
 
+    // By Using @PostConstruct annotation, we can have a method that is executed after dependency injected
+    // Here In the context of the IndexController class, the @PostConstruct annotation is used on the createLanguageMap method. This means that after the Spring framework has completed the instantiation and injection of dependencies (ResourceLoader, languages, etc.) for the IndexController object, it will automatically call the createLanguageMap method
     @Autowired
     ResourceLoader resourceLoader;
 
     private Map<String, Object> langMap;
+
+
+
 
     /**
      * Fill the page variables and return the name of the template page
@@ -76,6 +81,11 @@ public class IndexController {
      *
      * @throws IOException
      */
+
+    /**
+     * The @PostConstruct annotation is used on a method that needs to be executed after dependency injection is done to perform any initialization. This method must have no arguments and should return voiThe @PostConstruct annotation is used on a method that needs to be executed after dependency injection is done to perform any initialization. This method must have no arguments and should return voi
+     * If the method annotated with @PostConstruct throws an exception, the initialization of the bean will fail and the application context loading will also fail. This is because @PostConstruct is used to perform any setup or initialization tasks and if it fails, Spring assumes that the bean is not correctly initialized and hence, it will not put the bean into the application context.  In the context of your IndexController class, if the createLanguageMap method throws an exception, the IndexController bean will not be initialized and added to the application context. This will likely cause your application to fail to start, as the IndexController is probably a crucial part of your application.
+     **/
     @PostConstruct
     public void createLanguageMap() throws IOException {
         langMap = new HashMap<>();
