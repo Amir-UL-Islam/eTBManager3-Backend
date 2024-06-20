@@ -20,7 +20,7 @@ e-TB Manager is a web-based tool for managing all the information needed by nati
 
 In order to build e-TB Manager from the source code, you will need the following programs installed:
 
-* Java JDK 11
+* Java JDK 17
 * Maven 3+
 
 In order to work with client side development, it is highly recommended that you also install the following programs:
@@ -40,7 +40,7 @@ Installation instructions can be found in the site of each one of these programs
 Below is the list of frameworks and libraries used in e-TB Manager.
 
 ### Server side
-* Spring boot (currently 1.2.6);
+* Spring boot (currently 3.2.6);
 * Spring JPA, using Hibernate;
 * Freemarker, as template engine;
 * Liquibase, for database initialization;
@@ -87,7 +87,7 @@ These are the main files in the root folder:
 You need the following tools in order to start development:
 
 * Git
-* Java 11
+* Java 17
 * Maven 3+
 * Node 6.17.1
 * Gulp 3.8+
@@ -95,7 +95,7 @@ You need the following tools in order to start development:
 
 ### Downloading the source code
 
-The source code is stored in a Git repository, and the current Git URL is:
+The original source code is stored in a Git repository, and the current Git URL is:
 
 https://github.com/MSH/eTBmanager-3
 
@@ -151,7 +151,7 @@ An example of this file can be found in the `resources` folder. These are the ma
 
 For now, only two databases are supported:
 
-* MySQL 5.5+ - Recommended when installing in a server computer;
+* MySQL 8.0.36 - Recommended when installing in a server computer;
 * HSQLDB - Recommended when installing in a desktop computer for off-line and local usage;
 
 Below are examples of connection strings:
@@ -178,9 +178,9 @@ You must provide a configuration file etbmanager.properties, as described in the
 
 When initialization finishes, open the URL below:
 
-    http://localhost:8080/index.html 
+    http://localhost:8081/index.html 
 or
-> http://localhost:8080
+> http://localhost:8081
 
 ## Server side development
 
