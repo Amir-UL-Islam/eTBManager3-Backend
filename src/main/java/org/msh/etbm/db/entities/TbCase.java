@@ -1,5 +1,7 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.date.DateUtils;
 import org.msh.etbm.commons.date.Period;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
@@ -8,8 +10,6 @@ import org.msh.etbm.db.Address;
 import org.msh.etbm.db.WorkspaceEntity;
 import org.msh.etbm.db.enums.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.*;
 
 

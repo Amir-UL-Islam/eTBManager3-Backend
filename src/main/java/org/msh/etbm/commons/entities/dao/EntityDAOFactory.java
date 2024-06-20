@@ -1,5 +1,7 @@
 package org.msh.etbm.commons.entities.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.dozer.DozerBeanMapper;
 import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  * Factory class to generate new instances of {@link EntityDAO} classes

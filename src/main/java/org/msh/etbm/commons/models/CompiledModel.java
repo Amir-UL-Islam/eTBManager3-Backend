@@ -1,13 +1,11 @@
 package org.msh.etbm.commons.models;
 
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.models.data.Model;
 import org.msh.etbm.commons.models.impl.*;
 import org.springframework.validation.Errors;
 
-import javax.script.Invocable;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import java.util.Map;
 
 /**
@@ -22,7 +20,7 @@ import java.util.Map;
 public class CompiledModel {
 
     private Model model;
-    private ScriptObjectMirror jsModel;
+    private Value jsModel;
 
     public CompiledModel(Model model) {
         this.model = model;
@@ -57,7 +55,7 @@ public class CompiledModel {
     }
 
 
-    public ScriptObjectMirror getJsModel() {
+    public Value getJsModel() {
         if (jsModel == null) {
             generateJsModel();
         }
@@ -69,7 +67,7 @@ public class CompiledModel {
         ModelScriptGenerator gen = new ModelScriptGenerator();
         String script = gen.generate(model);
 
-        ScriptObjectMirror res = compileScript(script);
+        Value res = compileScript(script);
         jsModel = res;
     }
 
@@ -78,16 +76,12 @@ public class CompiledModel {
      * @param script the script in string format
      * @return the object to interact with the script
      */
-    private ScriptObjectMirror compileScript(String script) {
-        try {
-            ScriptEngine engine = new ScriptEngineManager().getEngineByExtension("js");
+    private Value compileScript(String script) {
+        try (Context context = Context.create("js")) {
+            context.eval("js", script);
 
-            // compile the script
-            engine.eval(script);
-
-            Invocable invokable = (Invocable)engine;
             String funcName = ModelScriptGenerator.modelFunctionName(model);
-            return (ScriptObjectMirror)invokable.invokeFunction(funcName);
+            return context.getBindings("js").getMember(funcName);
         } catch (Exception e) {
             throw new ModelException(e);
         }

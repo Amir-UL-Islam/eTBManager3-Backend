@@ -1,13 +1,13 @@
 package org.msh.etbm.commons.models.impl;
 
-import jdk.nashorn.api.scripting.JSObject;
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.Messages;
 import org.msh.etbm.commons.models.data.Validator;
 import org.springframework.validation.Errors;
 
-import javax.script.SimpleBindings;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Execute a list of validators. Used both in model custom validators and field custom validators
@@ -22,27 +22,35 @@ public class CustomValidatorsExecutor {
      * @param jsValidators JavaScript object containing the compiled objects
      * @param doc the document to be validated in JS format
      * @param errors the object to receive the errors
+     * @param messages the messages object to evaluate error messages
      * @return true if validators were successfully executed
      */
     public static boolean execute(String fieldName, List<Validator> validators,
-                                  ScriptObjectMirror jsValidators, SimpleBindings doc, Errors errors,
+                                  Value jsValidators, Map<String, Object> doc, Errors errors,
                                   Messages messages) {
         int index = 0;
         boolean success = true;
-        for (Validator validator: validators) {
-            JSObject func = (JSObject)jsValidators.get("v" + index);
-            boolean res = (boolean)func.call(doc);
-            if (!res) {
-                String msg = messages != null ? messages.eval(validator.getMessage()) : validator.getMessage();
 
-                if (fieldName != null) {
-                    errors.rejectValue(fieldName, null, msg);
-                } else {
-                    errors.reject(null, msg);
+        try (Context context = Context.create()) {
+            Value jsDoc = context.asValue(doc);
+
+            for (Validator validator : validators) {
+                Value func = jsValidators.getMember("v" + index);
+                boolean res = func.execute(jsDoc).asBoolean();
+                if (!res) {
+                    String msg = messages != null ? messages.eval(validator.getMessage()) : validator.getMessage();
+
+                    if (fieldName != null) {
+                        errors.rejectValue(fieldName, null, msg);
+                    } else {
+                        errors.reject(null, msg);
+                    }
+                    success = false;
                 }
-                success = false;
+                index++;
             }
-            index++;
+        } catch (Exception e) {
+            throw new RuntimeException("Error executing custom validators", e);
         }
 
         return success;

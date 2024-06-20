@@ -1,11 +1,11 @@
 package org.msh.etbm.db;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.db.entities.TbCase;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotNull;
 
 /**
  * A supper entity class that is under a TB case

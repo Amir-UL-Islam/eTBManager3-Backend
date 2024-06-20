@@ -3,8 +3,8 @@ package org.msh.etbm.services.pub;
 import org.hibernate.validator.constraints.Email;
 import org.msh.etbm.services.security.UserConstants;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 /**
  * Created by rmemoria on 13/6/16.

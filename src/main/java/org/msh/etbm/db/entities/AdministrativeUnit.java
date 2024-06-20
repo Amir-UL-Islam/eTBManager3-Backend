@@ -1,12 +1,12 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.SynchronizableItem;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.WorkspaceEntity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

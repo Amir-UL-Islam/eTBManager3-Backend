@@ -1,11 +1,11 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Past;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.enums.ExamStatus;
 
-import javax.persistence.*;
-import javax.validation.constraints.Past;
 import java.util.Date;
 
 

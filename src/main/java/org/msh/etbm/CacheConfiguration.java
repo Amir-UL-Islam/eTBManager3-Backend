@@ -1,11 +1,9 @@
 package org.msh.etbm;
 
-import com.google.common.cache.CacheBuilder;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.msh.etbm.commons.forms.impl.FormStoreService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.guava.GuavaCache;
-import org.springframework.cache.support.NoOpCacheManager;
+import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,12 +36,12 @@ public class CacheConfiguration {
     @Bean
     public CacheManager cacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
-        // configuration of the session ID
-        GuavaCache sessionCache = new GuavaCache(CACHE_SESSION_ID, CacheBuilder.newBuilder()
+
+        CaffeineCache sessionCache = new CaffeineCache(CACHE_SESSION_ID, Caffeine.newBuilder()
                 .expireAfterAccess(CACHE_SESSION_TIMEOUT_MIN, TimeUnit.MINUTES)
                 .build());
 
-        GuavaCache formsCache = new GuavaCache(FormStoreService.CACHE_ID, CacheBuilder.newBuilder()
+        CaffeineCache formsCache = new CaffeineCache(FormStoreService.CACHE_ID, Caffeine.newBuilder()
                 .build());
 
         cacheManager.setCaches(Arrays.asList(sessionCache, formsCache));

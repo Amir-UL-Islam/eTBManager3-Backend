@@ -1,9 +1,8 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
 import org.msh.etbm.services.admin.units.UnitType;
-
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 
 /**
  * Store information about a laboratory. Laboratory plays roles in exams and inventory management

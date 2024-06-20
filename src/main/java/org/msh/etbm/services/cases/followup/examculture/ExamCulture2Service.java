@@ -9,8 +9,8 @@ import org.msh.etbm.commons.models.db.RecordData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import javax.validation.constraints.NotNull;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotNull;
 import java.util.Map;
 import java.util.UUID;
 

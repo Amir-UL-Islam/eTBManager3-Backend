@@ -1,9 +1,9 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import org.msh.etbm.db.Synchronizable;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 
 /**

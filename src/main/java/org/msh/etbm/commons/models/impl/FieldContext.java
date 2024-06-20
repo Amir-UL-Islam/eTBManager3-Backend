@@ -1,7 +1,6 @@
 package org.msh.etbm.commons.models.impl;
 
-import jdk.nashorn.api.scripting.JSObject;
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.models.data.Field;
 import org.msh.etbm.commons.models.data.JSFuncValue;
 import org.msh.etbm.commons.objutils.ObjectUtils;
@@ -24,17 +23,16 @@ public class FieldContext {
     /**
      * The JavaScript field instance. This object contains JS functions declared in properties of the {@link Field}
      */
-    private ScriptObjectMirror jsField;
+    private Value jsField;
 
-
-    public FieldContext(ValidationContext context, Field field, ScriptObjectMirror jsField) {
+    public FieldContext(ValidationContext context, Field field, Value jsField) {
         this.context = context;
         this.field = field;
         this.jsField = jsField;
     }
 
     /**
-     * Evalue a property that can be a Java Script function or a constant value
+     * Evaluate a property that can be a JavaScript function or a constant value
      * @param propertyName
      * @return
      */
@@ -49,30 +47,30 @@ public class FieldContext {
             return res;
         }
 
-        JSFuncValue value = (JSFuncValue)res;
+        JSFuncValue value = (JSFuncValue) res;
 
         if (value.isValuePresent()) {
             return value.getValue() != null ? value.getValue() : false;
         }
 
-        JSObject func = (JSObject)jsField.get(propertyName);
-        return func.call(context.getDoc());
+        Value func = jsField.getMember(propertyName);
+        return func.execute(context.getDoc()).as(Object.class);
     }
 
     /**
-     * Eval a property that always return a boolean value
+     * Evaluate a property that always returns a boolean value
      * @param property
      * @return
      */
     public boolean evalBoolProperty(String property) {
-        return (boolean)evalProperty(property);
+        return (boolean) evalProperty(property);
     }
 
     public Field getField() {
         return field;
     }
 
-    public ScriptObjectMirror getJsField() {
+    public Value getJsField() {
         return jsField;
     }
 

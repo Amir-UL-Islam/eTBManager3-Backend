@@ -1,5 +1,6 @@
 package org.msh.etbm.web.api.admin;
 
+import jakarta.validation.Valid;
 import org.msh.etbm.commons.date.DateUtils;
 import org.msh.etbm.commons.entities.query.QueryResult;
 import org.msh.etbm.services.admin.errorlogrep.ErrorLogRepQueryParams;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 
 /**
  * Created by msantos on 05/7/16.

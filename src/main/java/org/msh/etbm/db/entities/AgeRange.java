@@ -1,9 +1,8 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import org.msh.etbm.db.WorkspaceEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * Represent an age range for the workspace

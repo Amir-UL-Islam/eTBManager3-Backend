@@ -1,5 +1,7 @@
 package org.msh.etbm.commons.entities.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import org.dozer.DozerBeanMapper;
 import org.msh.etbm.commons.Messages;
 import org.msh.etbm.commons.entities.EntityValidationException;
@@ -13,8 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 import java.util.UUID;
 
 /**

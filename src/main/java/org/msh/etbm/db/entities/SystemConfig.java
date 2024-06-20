@@ -1,6 +1,7 @@
 package org.msh.etbm.db.entities;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 /**
  * Store e-TB Manager configuration information. Id is always = 1

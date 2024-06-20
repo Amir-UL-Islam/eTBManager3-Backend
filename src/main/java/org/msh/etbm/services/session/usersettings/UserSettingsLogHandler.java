@@ -8,8 +8,8 @@ import org.msh.etbm.commons.objutils.Diffs;
 import org.msh.etbm.db.entities.User;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.Map;
 
 /**

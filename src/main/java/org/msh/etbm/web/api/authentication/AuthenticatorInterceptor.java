@@ -1,5 +1,7 @@
 package org.msh.etbm.web.api.authentication;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.msh.etbm.services.admin.sysconfig.SysConfigService;
 import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.msh.etbm.services.session.usersession.UserSession;
@@ -11,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 import java.util.TimeZone;
 import java.util.UUID;
@@ -26,7 +26,7 @@ import java.util.UUID;
  * Created by ricardo on 03/12/14.
  */
 @Component
-public class AuthenticatorInterceptor extends HandlerInterceptorAdapter {
+public class AuthenticatorInterceptor implements HandlerInterceptor {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(AuthenticatorInterceptor.class);
 

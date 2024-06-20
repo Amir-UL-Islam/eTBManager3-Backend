@@ -1,5 +1,7 @@
 package org.msh.etbm.commons;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.msh.etbm.db.PersonName;
 import org.msh.etbm.db.entities.Workspace;
 import org.msh.etbm.db.enums.NameComposition;
@@ -7,8 +9,6 @@ import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.UUID;
 

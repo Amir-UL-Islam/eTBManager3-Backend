@@ -2,7 +2,7 @@ package org.msh.etbm.services.cases.treatment.followup;
 
 import org.msh.etbm.db.enums.TreatmentDayStatus;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Created by rmemoria on 24/8/16.

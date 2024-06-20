@@ -2,7 +2,7 @@ package org.msh.etbm.services.dashboard;
 
 import org.msh.etbm.services.RequestScope;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
 package org.msh.etbm.db.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Stores information about an X-Ray exam of a case

@@ -1,8 +1,7 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
 import org.msh.etbm.db.CaseEntity;
-
-import javax.persistence.*;
 
 /**
  * Holds information about a side effect of a TB case

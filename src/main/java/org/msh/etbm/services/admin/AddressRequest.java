@@ -1,6 +1,6 @@
 package org.msh.etbm.services.admin;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**

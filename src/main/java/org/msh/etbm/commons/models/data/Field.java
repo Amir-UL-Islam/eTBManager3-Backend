@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.models.ModelException;
 import org.msh.etbm.commons.models.data.fields.FieldType;
 import org.msh.etbm.commons.models.data.fields.FieldTypeResolver;
 import org.msh.etbm.commons.models.data.options.FieldOptions;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**

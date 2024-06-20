@@ -1,12 +1,12 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import org.msh.etbm.commons.objutils.ObjectUtils;
 import org.msh.etbm.db.CaseEntity;
 import org.msh.etbm.db.enums.TreatmentDayStatus;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * Store information about medicine in-take along the treatment

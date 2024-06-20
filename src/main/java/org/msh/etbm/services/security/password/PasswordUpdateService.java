@@ -1,5 +1,6 @@
 package org.msh.etbm.services.security.password;
 
+import jakarta.persistence.EntityManager;
 import org.msh.etbm.commons.entities.EntityValidationException;
 import org.msh.etbm.db.entities.User;
 import org.msh.etbm.services.pub.PwdResetTokenResponse;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.UUID;
 

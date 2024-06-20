@@ -1,8 +1,7 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
 import org.msh.etbm.db.WorkspaceEntity;
-
-import javax.persistence.*;
 
 /**
  * Created by rmemoria on 20/1/17.

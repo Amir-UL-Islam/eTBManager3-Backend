@@ -1,7 +1,8 @@
 package org.msh.etbm.db.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Store the resistance patterns of a case from the DST and Xpert exam tests.

@@ -10,7 +10,7 @@ import org.msh.etbm.services.cases.treatment.start.StartTreatmentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.UUID;
 
 /**

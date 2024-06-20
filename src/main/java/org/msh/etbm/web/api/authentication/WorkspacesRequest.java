@@ -1,6 +1,7 @@
 package org.msh.etbm.web.api.authentication;
 
-import javax.validation.constraints.NotNull;
+
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Request used to return the list of workspaces of a given user

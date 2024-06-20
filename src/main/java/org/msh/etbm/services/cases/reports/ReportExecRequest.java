@@ -2,7 +2,7 @@ package org.msh.etbm.services.cases.reports;
 
 import org.msh.etbm.services.RequestScope;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**

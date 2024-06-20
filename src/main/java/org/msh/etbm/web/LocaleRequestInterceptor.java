@@ -1,5 +1,9 @@
 package org.msh.etbm.web;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.msh.etbm.services.session.usersession.UserSession;
 import org.msh.etbm.services.session.usersession.UserSessionService;
@@ -7,14 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
 /**
@@ -23,7 +23,7 @@ import java.util.Locale;
  * Created by rmemoria on 10/11/15.
  */
 @Component
-public class LocaleRequestInterceptor extends HandlerInterceptorAdapter {
+public class LocaleRequestInterceptor implements HandlerInterceptor {
 
     @Autowired
     UserSessionService userSessionService;
@@ -37,6 +37,15 @@ public class LocaleRequestInterceptor extends HandlerInterceptorAdapter {
     @Value("${app.languages}")
     String[] languages;
 
+    /**
+     * A HandlerInterceptor gets called before the appropriate HandlerAdapter triggers the execution of the handler itself. This mechanism can be used for a large field of preprocessing aspects, or common handler behavior like locale or theme changes. Its main purpose is to allow for factoring out repetitive handler code.
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws ServletException
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException {
         Locale locale = getLocale(request);

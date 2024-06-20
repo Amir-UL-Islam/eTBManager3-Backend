@@ -2,8 +2,8 @@ package org.msh.etbm.commons.models.data;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 /**

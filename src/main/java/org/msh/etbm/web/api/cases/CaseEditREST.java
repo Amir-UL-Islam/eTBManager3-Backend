@@ -1,5 +1,7 @@
 package org.msh.etbm.web.api.cases;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.entities.ServiceResult;
 import org.msh.etbm.commons.forms.FormInitResponse;
 import org.msh.etbm.services.cases.cases.CaseEditService;
@@ -10,8 +12,6 @@ import org.msh.etbm.web.api.authentication.Authenticated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**

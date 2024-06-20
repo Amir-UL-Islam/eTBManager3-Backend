@@ -1,7 +1,8 @@
 package org.msh.etbm.db.entities;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.UUID;
 

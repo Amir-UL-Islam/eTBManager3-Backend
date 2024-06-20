@@ -8,7 +8,7 @@ import org.msh.etbm.commons.entities.ServiceResult;
 import org.msh.etbm.commons.objutils.ObjectUtils;
 import org.msh.etbm.test.AuthenticatedTest;
 
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.*;
 
 import static org.hamcrest.CoreMatchers.isA;

@@ -2,8 +2,8 @@ package org.msh.etbm.services.cases.reports;
 
 import org.msh.etbm.services.cases.indicators.CaseIndicatorFormData;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 

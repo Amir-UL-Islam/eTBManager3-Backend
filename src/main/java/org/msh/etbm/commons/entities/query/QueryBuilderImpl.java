@@ -1,5 +1,7 @@
 package org.msh.etbm.commons.entities.query;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.dozer.DozerBeanMapper;
 import org.msh.etbm.commons.InvalidArgumentException;
 import org.msh.etbm.db.WorkspaceEntity;
@@ -7,8 +9,6 @@ import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

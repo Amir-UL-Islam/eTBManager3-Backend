@@ -1,6 +1,6 @@
 package org.msh.etbm.commons.models.data;
 
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.Messages;
 import org.msh.etbm.commons.models.ModelException;
 import org.msh.etbm.commons.models.data.fields.FieldType;
@@ -145,7 +145,7 @@ public abstract class FieldHandler<E extends Field> {
             return;
         }
 
-        ScriptObjectMirror validators = (ScriptObjectMirror)fieldContext.getJsField().get("validators");
+        Value validators = fieldContext.getJsField().getMember("validators");
 
         CustomValidatorsExecutor.execute(fieldContext.getField().getName(),
                 field.getValidators(),

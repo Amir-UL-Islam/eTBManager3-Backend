@@ -6,6 +6,7 @@ import org.msh.etbm.db.entities.AdministrativeUnit;
 import org.msh.etbm.db.entities.Searchable;
 import org.msh.etbm.db.enums.SearchableType;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionalEventListener;
 
@@ -21,7 +22,8 @@ public class SearchableEntityListener extends SearchableBuilder {
      * Called when a Searchable entity was created
      * @param event
      */
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+//    org.springframework.beans.factory.BeanInitializationException: Failed to process @EventListener annotation on bean with name 'searchableEntityListener': @TransactionalEventListener method must not be annotated with @Transactional unless when declared as REQUIRES_NEW or NOT_SUPPORTED: public void org.msh.etbm.services.session.search.SearchableEntityListener.copyToSearchable(org.msh.etbm.commons.entities.EntityServiceEvent)
     @TransactionalEventListener(condition = "T(org.msh.etbm.services.session.search.SearchableEntityListener).isCreatingSearchable(#event)")
     public void copyToSearchable(EntityServiceEvent event) {
         Object entity = entityManager.find(event.getResult().getEntityClass(), event.getResult().getId());
@@ -39,7 +41,7 @@ public class SearchableEntityListener extends SearchableBuilder {
      * Called when a Searchable entity was updated
      * @param event
      */
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @TransactionalEventListener(condition = "T(org.msh.etbm.services.session.search.SearchableEntityListener).isUpdatingSearchable(#event)")
     public void updateSearchable(EntityServiceEvent event) {
         Searchable searchable = entityManager.find(Searchable.class, event.getResult().getId());
@@ -62,7 +64,7 @@ public class SearchableEntityListener extends SearchableBuilder {
      * Called when a Searchable entity was removed
      * @param event
      */
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @TransactionalEventListener(condition = "T(org.msh.etbm.services.session.search.SearchableEntityListener).isRemovingSearchable(#event)")
     public void removeSearchable(EntityServiceEvent event) {
         Searchable searchable = entityManager.find(Searchable.class, event.getResult().getId());

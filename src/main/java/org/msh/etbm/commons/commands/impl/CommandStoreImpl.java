@@ -1,5 +1,7 @@
 package org.msh.etbm.commons.commands.impl;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.msh.etbm.commons.JsonUtils;
 import org.msh.etbm.commons.commands.*;
 import org.msh.etbm.commons.commands.details.CommandLogDetail;
@@ -7,8 +9,6 @@ import org.msh.etbm.db.entities.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Date;
 
 /**

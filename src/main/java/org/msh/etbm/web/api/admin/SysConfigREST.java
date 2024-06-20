@@ -1,5 +1,7 @@
 package org.msh.etbm.web.api.admin;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.services.admin.sysconfig.SysConfigFormData;
 import org.msh.etbm.services.admin.sysconfig.SysConfigService;
 import org.msh.etbm.services.security.permissions.Permissions;
@@ -12,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by rmemoria on 6/4/16.

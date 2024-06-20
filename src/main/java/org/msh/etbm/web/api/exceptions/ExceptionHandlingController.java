@@ -1,5 +1,7 @@
 package org.msh.etbm.web.api.exceptions;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.msh.etbm.commons.InvalidArgumentException;
 import org.msh.etbm.commons.Messages;
 import org.msh.etbm.commons.ValidationException;
@@ -20,8 +22,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.persistence.EntityNotFoundException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 

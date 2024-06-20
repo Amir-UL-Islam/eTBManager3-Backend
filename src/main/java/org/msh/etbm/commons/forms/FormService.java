@@ -1,5 +1,6 @@
 package org.msh.etbm.commons.forms;
 
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.collections.map.HashedMap;
 import org.msh.etbm.commons.forms.controls.ValuedControl;
 import org.msh.etbm.commons.forms.data.Form;
@@ -12,7 +13,6 @@ import org.msh.etbm.commons.objutils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

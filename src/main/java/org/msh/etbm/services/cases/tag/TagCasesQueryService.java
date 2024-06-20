@@ -11,8 +11,8 @@ import org.msh.etbm.services.cases.cases.data.CaseItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  * Service to generate a list about the cases of a given tag

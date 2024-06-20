@@ -1,5 +1,8 @@
 package org.msh.etbm.services.session.usersession;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.PersistenceContext;
 import org.dozer.DozerBeanMapper;
 import org.msh.etbm.CacheConfiguration;
 import org.msh.etbm.commons.SynchronizableItem;
@@ -12,9 +15,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

@@ -1,5 +1,8 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.Address;
@@ -7,9 +10,6 @@ import org.msh.etbm.db.EntityState;
 import org.msh.etbm.db.WorkspaceEntity;
 import org.msh.etbm.services.admin.units.UnitType;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**

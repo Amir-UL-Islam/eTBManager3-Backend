@@ -1,12 +1,12 @@
 package org.msh.etbm.db;
 
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.entities.AdministrativeUnit;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Embeddable
 public class Address {

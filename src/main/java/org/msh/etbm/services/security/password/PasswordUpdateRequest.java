@@ -2,8 +2,8 @@ package org.msh.etbm.services.security.password;
 
 import org.msh.etbm.services.security.UserConstants;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 /**
  * Request sent from the client to change user's password

@@ -2,7 +2,7 @@ package org.msh.etbm.test;
 
 import org.msh.etbm.services.admin.AddressRequest;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Optional;
 

@@ -1,12 +1,12 @@
 package org.msh.etbm.commons.models.impl;
 
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.models.data.Field;
 import org.msh.etbm.commons.models.data.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.MapBindingResult;
 
-import javax.script.SimpleBindings;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -15,14 +15,14 @@ import java.util.UUID;
  */
 public class ValidationContext {
     private Model model;
-    private ScriptObjectMirror jsModel;
+    private Value jsModel;
     private Errors errors;
     private Map<String, Object> doc;
 
     /**
      * The JS object containing a copy of the doc, to be used in JS execution
      */
-    private SimpleBindings docBinding;
+    private Map<String, Object> docBinding;
 
     /**
      * The record ID, if available
@@ -30,7 +30,7 @@ public class ValidationContext {
     private UUID id;
 
 
-    public ValidationContext(Model model, ScriptObjectMirror jsModel, Map<String, Object> doc, UUID id) {
+    public ValidationContext(Model model, Value jsModel, Map<String, Object> doc, UUID id) {
         this.model = model;
         this.jsModel = jsModel;
         this.doc = doc;
@@ -44,8 +44,8 @@ public class ValidationContext {
      * @return instance of {@link FieldContext}
      */
     public FieldContext createFieldContext(Field field) {
-        ScriptObjectMirror fields = (ScriptObjectMirror)jsModel.get("fields");
-        ScriptObjectMirror jsField = (ScriptObjectMirror)fields.get(field.getName());
+        Value fields = jsModel.getMember("fields");
+        Value jsField = fields.getMember(field.getName());
         FieldContext fieldContext = new FieldContext(this, field, jsField);
 
         return fieldContext;
@@ -55,9 +55,9 @@ public class ValidationContext {
      * Get the document binding representing the document, to be used in JS engine
      * @return
      */
-    public SimpleBindings getDocBinding() {
+    public Map<String, Object> getDocBinding() {
         if (docBinding == null) {
-            docBinding = new SimpleBindings();
+            docBinding = new HashMap<>();
             docBinding.putAll(doc);
         }
 
@@ -68,7 +68,7 @@ public class ValidationContext {
         return model;
     }
 
-    public ScriptObjectMirror getJsField() {
+    public Value getJsModel() {
         return jsModel;
     }
 

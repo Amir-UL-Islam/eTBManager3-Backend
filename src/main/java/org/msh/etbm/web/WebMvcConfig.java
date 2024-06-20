@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created by rmemoria on 21/8/15.
  */
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
     AuthenticatorInterceptor authenticatorInterceptor;
@@ -40,8 +40,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
         // add interceptor to set the current language
         registry.addInterceptor(localeRequestInterceptor);
-
-        super.addInterceptors(registry);
     }
 
 

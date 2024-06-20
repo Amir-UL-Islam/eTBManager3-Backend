@@ -1,10 +1,9 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.date.Period;
 import org.msh.etbm.db.CaseEntity;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 /**
  * Store information about a medicine prescribed to a case

@@ -1,6 +1,6 @@
 package org.msh.etbm.commons.models.data;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A validator is responsible for including custom validation in fields or models.

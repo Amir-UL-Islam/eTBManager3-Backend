@@ -1,6 +1,6 @@
 package org.msh.etbm.services.session.search;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Contain request information to be sent to the search service

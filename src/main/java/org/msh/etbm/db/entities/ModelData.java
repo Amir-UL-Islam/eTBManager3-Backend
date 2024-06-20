@@ -1,6 +1,7 @@
 package org.msh.etbm.db.entities;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 /**
  * Store information about a model in the database table

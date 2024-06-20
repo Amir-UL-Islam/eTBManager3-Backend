@@ -1,11 +1,11 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.enums.CultureResult;
 import org.msh.etbm.db.enums.SampleType;
 
-import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

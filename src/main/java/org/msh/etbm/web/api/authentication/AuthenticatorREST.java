@@ -1,13 +1,13 @@
 package org.msh.etbm.web.api.authentication;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.msh.etbm.services.security.authentication.AvailableWorkspacesService;
 import org.msh.etbm.services.security.authentication.LoginService;
 import org.msh.etbm.services.security.authentication.WorkspaceInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

@@ -1,6 +1,7 @@
 package org.msh.etbm.web.api.authentication;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.UUID;
 
 /**

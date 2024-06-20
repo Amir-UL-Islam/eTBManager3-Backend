@@ -10,9 +10,9 @@
 package org.msh.etbm.db.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Store information about a user role

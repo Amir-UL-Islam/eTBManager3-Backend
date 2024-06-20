@@ -1,6 +1,7 @@
 package org.msh.etbm.web.api.offline;
 
-import org.apache.commons.compress.utils.IOUtils;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.msh.etbm.services.offline.server.ServerInitService;
 import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.msh.etbm.web.api.authentication.Authenticated;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**

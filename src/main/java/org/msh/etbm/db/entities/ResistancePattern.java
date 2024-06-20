@@ -1,8 +1,8 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
 import org.msh.etbm.db.WorkspaceEntity;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

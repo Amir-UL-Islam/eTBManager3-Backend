@@ -1,5 +1,7 @@
 package org.msh.etbm.services.admin.cmdhisotryrep;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.msh.etbm.commons.Item;
 import org.msh.etbm.commons.JsonUtils;
 import org.msh.etbm.commons.Messages;
@@ -18,8 +20,6 @@ import org.msh.etbm.services.session.usersession.UserRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

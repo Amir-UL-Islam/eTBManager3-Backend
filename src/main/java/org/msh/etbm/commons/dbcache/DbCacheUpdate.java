@@ -1,6 +1,10 @@
 package org.msh.etbm.commons.dbcache;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.commons.objutils.ObjectUtils;
 import org.msh.etbm.db.entities.CachedData;
 import org.msh.etbm.services.session.usersession.UserRequestService;
@@ -15,10 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.transaction.Transactional;
-import javax.validation.constraints.NotNull;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,5 +1,6 @@
 package org.msh.etbm.web.api.session;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.msh.etbm.commons.SynchronizableItem;
 import org.msh.etbm.services.session.usersession.ChangeWorkspaceService;
 import org.msh.etbm.services.session.usersession.UserSessionResponse;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.UUID;
 

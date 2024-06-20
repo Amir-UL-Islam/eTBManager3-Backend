@@ -1,11 +1,11 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import org.msh.etbm.db.enums.DstResult;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.util.HashMap;
 
 @Entity

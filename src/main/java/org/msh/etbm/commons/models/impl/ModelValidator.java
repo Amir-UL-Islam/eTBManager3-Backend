@@ -1,6 +1,6 @@
 package org.msh.etbm.commons.models.impl;
 
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Value;
 import org.msh.etbm.commons.Messages;
 import org.msh.etbm.commons.models.FieldTypeManager;
 import org.msh.etbm.commons.models.ModelException;
@@ -22,7 +22,7 @@ public class ModelValidator {
     public Errors validate(ValidationContext context, Map<String, Object> vals, ModelResources resources) {
         Model model = context.getModel();
 
-        for (Map.Entry<String, Object> entry: vals.entrySet()) {
+        for (Map.Entry<String, Object> entry : vals.entrySet()) {
             String fname = entry.getKey();
             Field field = model.findFieldByName(fname);
             if (field == null) {
@@ -43,15 +43,14 @@ public class ModelValidator {
         return context.getErrors();
     }
 
-
     /**
-     * Check non declared fields that are required
+     * Check non-declared fields that are required
      * @param model The model related to the operation
      * @param doc the document model, with properties and values
      * @param context the validation context
      */
     private void checkRequiredFields(Model model, Map<String, Object> doc, ValidationContext context) {
-        for (Field field: model.getFields()) {
+        for (Field field : model.getFields()) {
             if (doc.containsKey(field.getName())) {
                 continue;
             }
@@ -70,7 +69,6 @@ public class ModelValidator {
         handler.validate(fieldContext.getField(), fieldContext, value, resources);
     }
 
-
     protected void validateModel(Model model, ValidationContext context, ModelResources resources) {
         // if there are field validation errors, don't validate the model
         if (context.getErrors().getFieldErrorCount() > 0) {
@@ -82,7 +80,7 @@ public class ModelValidator {
             return;
         }
 
-        ScriptObjectMirror validators = (ScriptObjectMirror)context.getJsField().get("validators");
+        Value validators = context.getJsModel().getMember("validators");
 
         // execute the validators
         CustomValidatorsExecutor.execute(null, model.getValidators(),
@@ -91,5 +89,4 @@ public class ModelValidator {
                 context.getErrors(),
                 resources != null ? resources.getMessages() : null);
     }
-
 }

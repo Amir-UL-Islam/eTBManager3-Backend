@@ -1,5 +1,7 @@
 package org.msh.etbm.web.api.cases;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.msh.etbm.services.cases.caseclose.CaseCloseData;
 import org.msh.etbm.services.cases.caseclose.CaseCloseService;
 import org.msh.etbm.services.security.permissions.Permissions;
@@ -8,8 +10,6 @@ import org.msh.etbm.web.api.authentication.Authenticated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**

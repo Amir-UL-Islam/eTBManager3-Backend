@@ -1,12 +1,12 @@
 package org.msh.etbm.db;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import org.hibernate.annotations.GenericGenerator;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import java.util.UUID;
 
 /**

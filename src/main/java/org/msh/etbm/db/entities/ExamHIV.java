@@ -1,10 +1,10 @@
 package org.msh.etbm.db.entities;
 
+import jakarta.persistence.*;
 import org.msh.etbm.commons.entities.cmdlog.Operation;
 import org.msh.etbm.commons.entities.cmdlog.PropertyLog;
 import org.msh.etbm.db.enums.HIVResult;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
