@@ -32,6 +32,7 @@ public class ErrorLog {
     private UUID userId;
 
     @Lob
+    @Column(length = 1024)
     private String stackTrace;
 
     @Column(length = 100)
