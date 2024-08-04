@@ -19,11 +19,11 @@ import org.springframework.transaction.event.TransactionalEventListener;
 public class SearchableEntityListener extends SearchableBuilder {
 
     /**
+     * org.springframework.beans.factory.BeanInitializationException: Failed to process @EventListener annotation on bean with name 'searchableEntityListener': @TransactionalEventListener method must not be annotated with @Transactional unless when declared as REQUIRES_NEW or NOT_SUPPORTED: public void org.msh.etbm.services.session.search.SearchableEntityListener.copyToSearchable(org.msh.etbm.commons.entities.EntityServiceEvent)
      * Called when a Searchable entity was created
      * @param event
      */
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-//    org.springframework.beans.factory.BeanInitializationException: Failed to process @EventListener annotation on bean with name 'searchableEntityListener': @TransactionalEventListener method must not be annotated with @Transactional unless when declared as REQUIRES_NEW or NOT_SUPPORTED: public void org.msh.etbm.services.session.search.SearchableEntityListener.copyToSearchable(org.msh.etbm.commons.entities.EntityServiceEvent)
     @TransactionalEventListener(condition = "T(org.msh.etbm.services.session.search.SearchableEntityListener).isCreatingSearchable(#event)")
     public void copyToSearchable(EntityServiceEvent event) {
         Object entity = entityManager.find(event.getResult().getEntityClass(), event.getResult().getId());

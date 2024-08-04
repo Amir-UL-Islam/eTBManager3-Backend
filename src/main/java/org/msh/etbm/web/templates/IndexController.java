@@ -37,7 +37,7 @@ public class IndexController {
     private String contextPath;
 
     @Value("${development:false}")
-    private boolean development;
+    private boolean development = true;
 
     // By Using @PostConstruct annotation, we can have a method that is executed after dependency injected
     // Here In the context of the IndexController class, the @PostConstruct annotation is used on the createLanguageMap method. This means that after the Spring framework has completed the instantiation and injection of dependencies (ResourceLoader, languages, etc.) for the IndexController object, it will automatically call the createLanguageMap method

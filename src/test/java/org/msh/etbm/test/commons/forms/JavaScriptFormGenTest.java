@@ -1,6 +1,7 @@
 package org.msh.etbm.test.commons.forms;
 
-import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Value;
 import org.junit.Test;
 import org.msh.etbm.commons.forms.data.Form;
 import org.msh.etbm.commons.forms.impl.JavaScriptFormGenerator;
@@ -12,6 +13,8 @@ import org.springframework.core.io.ClassPathResource;
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -26,7 +29,7 @@ public class JavaScriptFormGenTest extends AuthenticatedTest {
     JavaScriptFormGenerator javaScriptFormGenerator;
 
     @Test
-    public void test() throws Exception {
+    public void test() throws IOException {
         ClassPathResource resource = new ClassPathResource("/test/forms/parse-test.json");
         JsonFormParser p = new JsonFormParser();
         Form frm = p.parse(resource.getInputStream());
@@ -35,14 +38,24 @@ public class JavaScriptFormGenTest extends AuthenticatedTest {
 
         System.out.println(script);
 
-        ScriptEngine engine = new ScriptEngineManager().getEngineByExtension("js");
+        try (Context context = Context.create("js")) {
+            // compile the script to test if it was generated correctly
+            context.eval("js", script);
 
-        // compile the script to test if it was generated correctly
-        engine.eval(script);
+            Value newSchemaFunction = context.getBindings("js").getMember("newSchema");
+            if (newSchemaFunction == null) {
+                throw new RuntimeException("Function newSchema not found in script");
+            }
 
-        Invocable invokable = (Invocable)engine;
-        ScriptObjectMirror res = (ScriptObjectMirror)invokable.invokeFunction("newSchema");
-        assertNotNull(res.getMember("defaultProperties"));
-        assertNotNull(res.getMember("controls"));
+            Value res = newSchemaFunction.execute();
+            assertNotNull(res.getMember("defaultProperties"));
+            assertNotNull(res.getMember("controls"));
+        }
+    }
+
+    private void assertNotNull(Object obj) {
+        if (obj == null) {
+            throw new AssertionError("Object should not be null");
+        }
     }
 }

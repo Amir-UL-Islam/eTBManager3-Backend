@@ -1,18 +1,18 @@
 package org.msh.etbm.test;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.msh.etbm.Application;
 import org.msh.etbm.web.LocaleRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  * Created by rmemoria on 13/5/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(Application.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = Application.class)
 @WebAppConfiguration
 public class LocaleRequestInterceptorTest {
 

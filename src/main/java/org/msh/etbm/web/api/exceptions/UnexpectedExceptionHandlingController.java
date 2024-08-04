@@ -48,8 +48,8 @@ public class UnexpectedExceptionHandlingController {
     @PersistenceContext
     EntityManager entityManager;
 
-    @Value("${development:false}")
-    boolean development;
+    @Value("${development:true}")
+    boolean development = true;
 
     @Transactional
     @ExceptionHandler(Exception.class)
@@ -104,6 +104,7 @@ public class UnexpectedExceptionHandlingController {
 
     /**
      * Send email to administrator notifying that an unexpected error occourred
+     *
      * @param error
      */
     private void notifyAdministrators(ErrorLog error) {
